@@ -1,0 +1,349 @@
+/* Alto Contraste */
+body.high-contrast {
+  --bg-main: #000000;
+  --primary-cyan: #00FFFF;
+  --primary-purple: #FFFF00;
+  --purple-dark: #FFFF00;
+  --text-dark: #FFFFFF;
+  --card-bg: #1A1A1A;
+  --beige-light: #2A2A2A;
+  --border-color: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-size: calc(16px * var(--font-scale));
+}
+
+/* Simulador Toolbar */
+.device-toolbar {
+  width: 100%;
+  background-color: #1E1E24;
+  color: #FFF;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+
+.device-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.device-btn {
+  background: #333;
+  color: #FFF;
+  border: 1px solid #555;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.device-btn.active, .device-btn:hover {
+  background: var(--primary-cyan);
+  color: #000;
+  border-color: var(--primary-cyan);
+}
+
+/* Container do App */
+.app-viewport {
+  width: 100%;
+  max-width: 1200px;
+  min-height: calc(100vh - 60px);
+  background-color: var(--bg-main);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-viewport.mobile-view {
+  max-width: 410px;
+  min-height: 820px;
+  margin: 20px auto;
+  border-radius: 36px;
+  border: 12px solid #2D3748;
+  overflow-x: hidden;
+}
+
+/* Cabeçalho de Acessibilidade */
+header {
+  background-color: var(--card-bg);
+  border-bottom: 2px solid var(--border-color);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--primary-purple);
+  cursor: pointer;
+}
+
+.logo-badge {
+  background: var(--primary-cyan);
+  color: #FFF;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.accessibility-tools {
+  display: flex;
+  gap: 8px;
+}
+
+.acc-btn {
+  background: var(--beige-light);
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Navegação Principal */
+nav {
+  background: var(--card-bg);
+  display: flex;
+  justify-content: border-around;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-tab.active {
+  color: var(--primary-purple);
+  border-bottom-color: var(--primary-purple);
+  background-color: rgba(94, 37, 141, 0.05);
+}
+
+/* Conteúdo das Telas */
+main {
+  padding: 20px;
+  flex: 1;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* Tela Inicial (Landing Page) */
+.hero-card {
+  background: linear-gradient(135deg, var(--primary-purple), var(--purple-dark));
+  color: white;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.hero-card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.hero-card p {
+  opacity: 0.9;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 600px) {
+  .btn-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.btn-primary {
+  background-color: var(--primary-cyan);
+  color: #000;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+@media (min-width: 600px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+/* Formulário de Cadastro */
+.form-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--beige-light);
+  color: var(--text-dark);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-cyan);
+}
+
+.file-upload-box {
+  border: 2px dashed var(--primary-cyan);
+  background-color: rgba(0, 188, 212, 0.05);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Painel do Aluno & Apoio Entre Pares */
+.peer-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-left: 5px solid var(--primary-cyan);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.peer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.author-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.audio-player {
+  background: var(--beige-light);
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.play-btn {
+  background: var(--primary-purple);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
